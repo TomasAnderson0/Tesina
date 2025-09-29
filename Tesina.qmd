@@ -1,0 +1,200 @@
+---
+title: "Inserte titulo aqui"
+subtitle: "Inserte subtitulo aqui"
+controls: True
+format:
+  revealjs:
+    slide-number: true
+title-slide-attributes: 
+  data-background-image: https://static.vecteezy.com/system/resources/previews/006/413/049/non_2x/green-gradient-pastle-soft-beautiful-abstract-background-you-can-use-this-background-for-your-content-like-as-technology-video-gaming-promotion-card-banner-sports-presentation-website-etc-vector.jpg
+editor: visual
+---
+
+## ¿Que es el Reinforcement Learning?
+
+::: rows
+::: {.row height="50%"}
+El aprendizaje por refuerzo (RL) es un tipo de aprendizaje automático en el que un agente aprende, mediante prueba y error, a tomar decisiones en un entorno con el objetivo de maximizar una señal de recompensa numérica acumulada.
+:::
+
+::: {.row height="50%"}
+![](https://media.geeksforgeeks.org/wp-content/uploads/20220214110501/ImagefromiOS1-660x296.jpg){fig-align="center"}
+:::
+:::
+
+## Elementos del RL
+
+::: {style="font-size: 87%;"}
+-   Agente: Entidad que toma decisiones e interactúa con el entorno para lograr un objetivo.
+-   Entorno: Todo lo externo al agente, con lo que este interactúa y que responde a sus acciones.
+-   Estado(S): Representación de la información relevante del entorno que el agente puede observar en un momento dado.
+-   Recompensa(R): Señal numérica proporcionada por el entorno que indica al agente qué tan buena fue una acción.
+-   Acción(A): Decisión o movimiento que el agente realiza para influir en el entorno.
+:::
+
+## Proceso de decision de Markov(MDP)
+
+::: rows
+::: {.row height="30%"}
+::: columns
+::: {.column width="50%"}
+::: {style="font-size: 70%;"}
+En un estado dado del entorno, el agente debe seleccionar una acción. Al ejecutar dicha acción, el entorno responde proporcionando un nuevo estado y una recompensa numérica asociada a esa transición. Repitiendo este proceso de forma cíclica —ya sea hasta alcanzar un objetivo o hasta que finalice la tarea— se genera una secuencia o *trayectoria* del tipo:
+:::
+:::
+
+::: {.column width="50%"}
+![](https://www.ibm.com/content/dam/connectedassets-adobe-cms/worldwide-content/creative-assets/s-migr/ul/g/8f/5e/reinforcement-learning-figure-1.png){width="1000%"}
+:::
+:::
+:::
+
+::: {.row height="70%"}
+::: {style="font-size: 70%;"}
+$$S_0,A_0,R_1,S_1,A_1,R_2,S_2,A_2,...$$ Esta secuencia es conocida como un Proceso de Decisión de Markov (MDP)
+:::
+:::
+:::
+
+## Finito
+
+::: {style="font-size: 70%;"}
+Si el conjunto de estados, acciones y recompensas($\boldsymbol{S}$, $\boldsymbol{A}$ y $\boldsymbol{R}$) tienen un numero finito de elementos, entonces se dice que el MDP es finito. En este caso, la probabilidad de obtener una recompensa $r \in \boldsymbol{R}$ y un estado $s' \in \boldsymbol{S}$ en un tiempo t , dado un estado anterior s y una acción tomada a, se define como: $$p(s', r | s, a) = Pr(S_t = s' , R_t | S_{t-1}=s,A_{t-1}=a )$$ La función p describe la dinámica del MDP. Si esta función caracteriza completamente el entorno —es decir, si la probabilidad de cada posible par de estado y recompensa futuros depende únicamente del estado y la acción anteriores—, entonces se dice que el proceso posee la **propiedad de Markov**.
+:::
+
+## Recompensa
+
+::: {style="font-size: 70%;"}
+Para alcanzar su objetivo, el agente recibe en cada paso una recompensa, que es simplemente un número real $R_t \in \mathbb{R}$. Informalmente, el agente debe maximizar el total de recompensas que recibe a lo largo del tiempo, es decir, debe priorizar la suma acumulativa de recompensas a largo plazo. En otras palabras, se busca maximizar el retorno esperado, denotado como $G_t$, el cual es una función de la secuencia de recompensas futuras. El caso más simple de retorno es la suma de todas las recompensas futuras:
+
+\par
+
+$$G_t = R_{t+1}+R_{t+2}+R_{t+3}+... =   \sum_{k=0}^\infty R_{t+k+1} \ \ \ \ \ \ \ \ \ \ \ \ (1.1)$$
+
+Si existe una noción de un paso final, y la interacción entre el agente y el entorno puede dividirse en subsecuencias con un comienzo y un fin definidos —llamadas *episodios*—, entonces la tarea se denomina *episódica*. En cambio, si la interacción no se divide en episodios identificables y continúa indefinidamente, la tarea se considera *continua*.
+:::
+
+## Descuento
+
+::: {style="font-size: 70%;"}
+Si la tarea es continua, el retorno $G_t$ puede ser infinito. Para evitarlo, se introduce un factor de descuento $\gamma \in [0,1]$.
+
+$$G_t = R_{t+1}+\gamma R_{t+2}+ \gamma^2R_{t+3}+... = \sum_{k=0}^\infty \gamma^kR_{t+k+1} \ \ \ \ \ \ \ \ \ \ \ \ (1.2) $$ Mientras $\gamma<1$ la suma infinita en (1.2) es finita siempre que las recompensas $R_t$ esten acotadas. Cuando $\gamma = 0$, se dice que el agente es *miope*, pues solo maximiza las recompensas inmediatas.Cuanto más se acerque $\gamma$ a 1, mayor será la importancia que el retorno otorgue a las recompensas futuras.
+
+```{=tex}
+\begin{matrix}
+\begin{matrix}
+G_t = R_{t+1}+\gamma R_{t+2}+ \gamma^2R_{t+3}+... = \\ 
+= R_{t+1}+\gamma (R_{t+2}+ \gamma R_{t+3}+...) =  \hfill \\ = R_{t+1} + \gamma G_{t+1} \hfill
+\end{matrix} & \hfill (1.3)
+\end{matrix}
+```
+:::
+
+## Funcion de valor y politica
+
+::: {style="font-size: 70%;"}
+Para el agente saber que tan bien una accion en cierto estado se necesita una funcion que estime las recompensas futuras promedio que la accion traera. Esto se logra con la llamada funcion de valor, que depende de la accion que el agente tome, es decir, depende de su politica. La politica es el mapeo de los estados a la probabilidad de seleccionar cada posible accion. Si el agente sigue una politica $\pi$ al tiempo t, entonces $\pi(a|s)$ es la probabilidad de $A_t=a$ si $S_t=s$. La funcion de valor siguiendo la politica \pi, $v_\pi(s)$, es el retorno esperado de seguir una politica \pi cuando se empieza en el estado s. Llamamos a la funcion $v_\pi$ funcion estado-valor de la politica $\pi$.
+
+$$v_\pi(s) = E_\pi[G_t|S_T=s] = E_\pi[\sum_{k=0}^\infty \gamma^kR_{t+k+1}| S_t=s] \ \ \ \  \forall s \in \boldsymbol{S} $$
+:::
+
+## asdas
+
+::: {style="font-size: 70%;"}
+::: rows
+::: {.row height="30%"}
+Una propiedad fundamental de las funciones de valores es que satisfacen una relacion recursiva. Para cualquier polica $\pi$ y estado s, se cumple una condición de consistencia entre el valor de dicho estado y los valores de sus estados sucesores.
+:::
+
+::: {.row height="70%"}
+::: columns
+::: {.column width="70%"}
+$v_\pi(s) = E_\pi[G_t|S_T=s] \  \ \  por \ (1.3)$ \newline
+
+$= E_\pi[R_{t+1}+\gamma G_{t+1}|S_T=s] \ \ \ (1.4)$ \newline
+
+$= \sum_{a} \pi(a|s)\sum_{s'}\sum_{r}p(s',r|s,a)[r+\gamma E_\pi[G_{t+1}|S_{t+1}=s']]$\newline
+
+$= \sum_{a} \pi(a|s)\sum_{s',r}p(s',r|s,a)[r+\gamma v_\pi(s')] \ \  \forall s \in \boldsymbol{S} \ \ (1.5)$
+
+La ecuación (1.4), conocida como *ecuación de Bellman*, expresa precisamente esta relación entre un estado y sus sucesores.
+:::
+
+::: {.column width="30%"}
+![](https://miro.medium.com/v2/resize:fit:612/1*NwP8EPGMmu8UuE5bycYRUQ.png){fig-align="right"}
+:::
+:::
+:::
+:::
+:::
+
+## asdsad
+
+::: {style="font-size: 70%;"}
+De manera análoga, se define el valor de tomar una acción a en un estado s bajo una politica $\pi$ como el retorno esperado al comenzar en s, ejecutar la acción a y continuar siguiendo dicha política:
+
+$q_\pi(s,a) = E_\pi[G_t|S_T=s,A_T =a] = E_\pi[\sum_{k=0}^\infty \gamma^kR_{t+k+1}| S_t=s,A_T =a] \ \ \ \$ \newline
+
+Equivalentemente, puede expresarse como:
+
+$q_\pi(s,a) = E_\pi[R_{t+1}+\gamma v(S_{t+1})|S_T=s,A_T=a]$
+
+A esta función se la denomina función de acción-valor de la política $\pi$.
+
+El objetivo del aprendizaje por refuerzo es encontrar una política que maximice las recompensas futuras esperadas, es decir, que maximice, es decir, que maximice $v_\pi(s)$.
+
+Decimos que una politica $\pi'$ es mejor que otra $\pi \Leftrightarrow v_{\pi'}(s)>v_\pi(s) \ \forall s\in \boldsymbol{S}$
+
+Se define la funcion estado-valor optima como $v_*(s)= \underset{\pi}{max} v_\pi (s)$ y la funcion accion-valor optima como $q_*(s,a)= \underset{\pi}{max} q_\pi (s,a)$
+:::
+
+## Explotacion y exploracion
+
+::: {style="font-size: 70%;"}
+El agente no conoce de antemano cuál es la política óptima, por lo que tampoco puede saber si su política actual es la mejor posible. La búsqueda de una mejor política implica, en ocasiones, ejecutar acciones con menor recompensa esperada en el corto plazo, con la esperanza de descubrir alternativas que resulten más beneficiosas a largo plazo. Este dilema se lo conoce como el **problema de explotacion vs exploracion**.
+
+Una estrategia simple para abordarlo es el método $\epsilon$-greedy. Bajo este esquema, el agente selecciona una acción al azar con probabilidad $\epsilon$, lo que le permite explorar nuevas posibilidades, y con probabilidad $1-\epsilon$ elige la mejor acción conocida hasta el momento, es decir, explota su conocimiento actual. Este tipo de estrategias se conocen como **estocasticas**, ya que asigna probabilidades estrictamente positivas a todas las acciones posibles en un estado dado. En contraste, una política **determinista** elige siempre la misma acción en cada estado, sin incorporar exploración.
+:::
+
+## Monte Carlo
+
+::: {style="font-size: 70%;"}
+Una forma sencilla de estimar el valor de un estado es mediante el promedio de las recompensas obtenidas tras haber visitado dicho estado. A medida que aumenta la cantidad de visitas, este promedio converge al valor esperado. Este metodo se conoce como el metodo de **Monte Carlo(MC)**.
+
+La principal ventaja de MC es que no requiere un modelo del ambiente para estimar las funciones de valor de acción, sino que se basa únicamente en la recolección de *experiencias*: secuencias de estados, acciones y recompensas en forma de episodios. En este contexto, suele ser más útil estimar directamente los valores de acción en lugar de los valores de estado, ya que sin conocer la dinámica del entorno, los valores de estado por sí solos no permiten derivar una política.
+
+Una complicación importante de este método es la posibilidad de que ciertos pares estado–acción nunca sean visitados, lo que impide estimar sus valores. La forma más común de mitigar este problema es utilizar políticas estocásticas, que aseguran una probabilidad positiva de seleccionar todas las acciones posibles. Para garantizar esta propiedad, se emplean principalmente dos tipos de métodos.
+:::
+
+## On policy vs off policy
+
+::: {style="font-size: 70%;"}
+Los metodos on-policy evaluan y mejoran la politica que estan usando para tomar decisiones, mientras que los off-policy mejoran una politica distinta a la que usan para generar los datos.
+
+En los metodos on-policy, la politica suele ser *suave*, con $\pi(a|s)>0$ $\forall s \in \boldsymbol{S} \ \land$ $\forall a \in \boldsymbol{A}$, gradualmente convergiendo a una politica optima determinista. Estos metodos suelen ser mas simples que los off-policy y ser considerados primero. Los off-policy requieren mas conceptos y notaciones, y al requerir datos de otra politica suelen tener mas variancia y converger mas lentamente, pero son mas poderosos y generales, ya que los metodos on-policy son el caso especial de que la politica que se mejora es la misma que con la que se obtienen los datos.
+:::
+
+## Temporal difference
+
+::: {style="font-size: 70%;"}
+Una de las desventajas de los metodos de Monte Carlo es que tienen que esperar a que el episodio termine para actualizar la estimacion de la funcion de valor. Ahi es donde entra el *Aprendizaje por Diferencias Temporales(TD)*. Este metodo permite actualizar las estimaciones utilizando remuestreo(bootstrap) sin necesidad de esperar a que el episodio acabe. El objetivo de diferencia temporal(TD Target) es la estimacion de $E_\pi[R_{t+1}+\gamma G_{t+1}|S_T=s]$ (1.4), con el que actualizara las viejas estimaciones.
+
+$Est_{new} = Est_{old} + \alpha [TDTarget - Est_{old}]$
+
+Donde $\alpha$ es la tasa de aprendizaje
+
+Siendo $\delta_t = [target - old_est]$ el *error de diferencia temporal*
+:::
+
+## Ejemplo metodo TD on-policy: Sarsa
+
+::: {style="font-size: 70%;"}
+$Q(S_t,A_t) \leftarrow Q(S_t,A_t) + \alpha [R_{t+1} + \gamma Q(S_{t+1},A_{t+1})-Q(S_t,A_t)]$
+:::
+
+## Q-learning
+
+::: {style="font-size: 70%;"}
+$Q(S_t,A_t) \leftarrow Q(S_t,A_t) + \alpha [R_{t+1} + \gamma \underset{a}{max} Q(S_{t+1},a)-Q(S_t,A_t)]$
+:::
