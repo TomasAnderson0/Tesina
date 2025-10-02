@@ -1,2 +1,2 @@
 # Tesina
-Tesina sobre reinforced learning
+Tesina sobre reinforcement learning
