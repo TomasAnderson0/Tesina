@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html lang="en"><head>
-<script src="Tesina_files/libs/clipboard/clipboard.min.js"></script>
-<script src="Tesina_files/libs/quarto-html/tabby.min.js"></script>
-<script src="Tesina_files/libs/quarto-html/popper.min.js"></script>
-<script src="Tesina_files/libs/quarto-html/tippy.umd.min.js"></script>
-<link href="Tesina_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="Tesina_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="Tesina_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
-<link href="Tesina_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+<script src="Introduccion-02-10-2025_files/libs/clipboard/clipboard.min.js"></script>
+<script src="Introduccion-02-10-2025_files/libs/quarto-html/tabby.min.js"></script>
+<script src="Introduccion-02-10-2025_files/libs/quarto-html/popper.min.js"></script>
+<script src="Introduccion-02-10-2025_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="Introduccion-02-10-2025_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="Introduccion-02-10-2025_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="Introduccion-02-10-2025_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
+<link href="Introduccion-02-10-2025_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.4.551">
 
   <title>Inserte titulo aqui</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <link rel="stylesheet" href="Tesina_files/libs/revealjs/dist/reset.css">
-  <link rel="stylesheet" href="Tesina_files/libs/revealjs/dist/reveal.css">
+  <link rel="stylesheet" href="Introduccion-02-10-2025_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="Introduccion-02-10-2025_files/libs/revealjs/dist/reveal.css">
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -29,11 +29,11 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="Tesina_files/libs/revealjs/dist/theme/quarto.css">
-  <link href="Tesina_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
-  <link href="Tesina_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
-  <link href="Tesina_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
-  <link href="Tesina_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <link rel="stylesheet" href="Introduccion-02-10-2025_files/libs/revealjs/dist/theme/quarto.css">
+  <link href="Introduccion-02-10-2025_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="Introduccion-02-10-2025_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="Introduccion-02-10-2025_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="Introduccion-02-10-2025_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
   <style type="text/css">
 
   .callout {
@@ -333,7 +333,7 @@
 
 </section>
 <section id="que-es-el-reinforcement-learning" class="slide level2">
-<h2>¿Que es el Reinforcement Learning?</h2>
+<h2>¿Que es el <em>Reinforcement Learning</em>?</h2>
 <div class="rows">
 <div class="row" height="50%">
 <p>El aprendizaje por refuerzo (RL) es un tipo de aprendizaje automático en el que un agente aprende, mediante prueba y error, a tomar decisiones en un entorno con el objetivo de maximizar una señal de recompensa numérica acumulada.</p>
@@ -359,14 +359,14 @@
 </ul>
 </div>
 </section>
-<section id="proceso-de-decision-de-markovmdp" class="slide level2">
-<h2>Proceso de decision de Markov(MDP)</h2>
+<section id="proceso-de-decisión-de-markovmdp" class="slide level2">
+<h2>Proceso de decisión de Markov(MDP)</h2>
 <div class="rows">
 <div class="row" height="30%">
 <div class="columns">
 <div class="column" style="width:50%;">
 <div style="font-size: 70%;">
-<p>En un estado dado del entorno, el agente debe seleccionar una acción. Al ejecutar dicha acción, el entorno responde proporcionando un nuevo estado y una recompensa numérica asociada a esa transición. Repitiendo este proceso de forma cíclica —ya sea hasta alcanzar un objetivo o hasta que finalice la tarea— se genera una secuencia o <em>trayectoria</em> del tipo:</p>
+<p>En un estado dado del entorno, el agente debe seleccionar una acción. Al ejecutar dicha acción, el entorno responde proporcionando un nuevo estado y una recompensa numérica asociada a esa transición. Repitiendo este proceso de forma cíclica —ya sea hasta alcanzar un objetivo o hasta que finalice la tarea (estado terminal)— se genera una secuencia o <em>trayectoria</em> del tipo:</p>
 </div>
 </div><div class="column" style="width:50%;">
 <p><img data-src="https://www.ibm.com/content/dam/connectedassets-adobe-cms/worldwide-content/creative-assets/s-migr/ul/g/8f/5e/reinforcement-learning-figure-1.png" style="width:1000.0%"></p>
@@ -380,8 +380,8 @@
 </div>
 </div>
 </section>
-<section id="finito" class="slide level2">
-<h2>Finito</h2>
+<section id="mdp-finito" class="slide level2">
+<h2>MDP Finito</h2>
 <div style="font-size: 70%;">
 <p>Si el conjunto de estados, acciones y recompensas(<span class="math inline">\(\boldsymbol{S}\)</span>, <span class="math inline">\(\boldsymbol{A}\)</span> y <span class="math inline">\(\boldsymbol{R}\)</span>) tienen un numero finito de elementos, entonces se dice que el MDP es finito. En este caso, la probabilidad de obtener una recompensa <span class="math inline">\(r \in \boldsymbol{R}\)</span> y un estado <span class="math inline">\(s' \in \boldsymbol{S}\)</span> en un tiempo t , dado un estado anterior s y una acción tomada a, se define como: <span class="math display">\[p(s', r | s, a) = Pr(S_t = s' , R_t | S_{t-1}=s,A_{t-1}=a )\]</span> La función p describe la dinámica del MDP. Si esta función caracteriza completamente el entorno —es decir, si la probabilidad de cada posible par de estado y recompensa futuros depende únicamente del estado y la acción anteriores—, entonces se dice que el proceso posee la <strong>propiedad de Markov</strong>.</p>
 </div>
@@ -398,7 +398,7 @@
 <h2>Descuento</h2>
 <div style="font-size: 70%;">
 <p>Si la tarea es continua, el retorno <span class="math inline">\(G_t\)</span> puede ser infinito. Para evitarlo, se introduce un factor de descuento <span class="math inline">\(\gamma \in [0,1]\)</span>.</p>
-<p><span class="math display">\[G_t = R_{t+1}+\gamma R_{t+2}+ \gamma^2R_{t+3}+... = \sum_{k=0}^\infty \gamma^kR_{t+k+1} \ \ \ \ \ \ \ \ \ \ \ \ (1.2) \]</span> Mientras <span class="math inline">\(\gamma&lt;1\)</span> la suma infinita en (1.2) es finita siempre que las recompensas <span class="math inline">\(R_t\)</span> esten acotadas. Cuando <span class="math inline">\(\gamma = 0\)</span>, se dice que el agente es <em>miope</em>, pues solo maximiza las recompensas inmediatas.Cuanto más se acerque <span class="math inline">\(\gamma\)</span> a 1, mayor será la importancia que el retorno otorgue a las recompensas futuras.</p>
+<p><span class="math display">\[G_t = R_{t+1}+\gamma R_{t+2}+ \gamma^2R_{t+3}+... = \sum_{k=0}^\infty \gamma^kR_{t+k+1} \ \ \ \ \ \ \ \ \ \ \ \ (1.2) \]</span> Mientras <span class="math inline">\(\gamma&lt;1\)</span> la suma infinita en (1.2) es finita siempre que las recompensas <span class="math inline">\(R_t\)</span> esten acotadas. Cuando <span class="math inline">\(\gamma = 0\)</span>, se dice que el agente es <em>miope</em>, pues solo maximiza las recompensas inmediatas. Cuanto más se acerque <span class="math inline">\(\gamma\)</span> a 1, mayor será la importancia que el retorno otorgue a las recompensas futuras.</p>
 <span class="math display">\[\begin{matrix}
 \begin{matrix}
 G_t = R_{t+1}+\gamma R_{t+2}+ \gamma^2R_{t+3}+... = \\
@@ -407,15 +407,15 @@ G_t = R_{t+1}+\gamma R_{t+2}+ \gamma^2R_{t+3}+... = \\
 \end{matrix}\]</span>
 </div>
 </section>
-<section id="funcion-de-valor-y-politica" class="slide level2">
-<h2>Funcion de valor y politica</h2>
+<section id="funcion-de-valor-y-política" class="slide level2">
+<h2>Funcion de valor y política</h2>
 <div style="font-size: 70%;">
 <p>Para el agente saber que tan bien una accion en cierto estado se necesita una funcion que estime las recompensas futuras promedio que la accion traera. Esto se logra con la llamada funcion de valor, que depende de la accion que el agente tome, es decir, depende de su politica. La politica es el mapeo de los estados a la probabilidad de seleccionar cada posible accion. Si el agente sigue una politica <span class="math inline">\(\pi\)</span> al tiempo t, entonces <span class="math inline">\(\pi(a|s)\)</span> es la probabilidad de <span class="math inline">\(A_t=a\)</span> si <span class="math inline">\(S_t=s\)</span>. La funcion de valor siguiendo la politica , <span class="math inline">\(v_\pi(s)\)</span>, es el retorno esperado de seguir una politica cuando se empieza en el estado s. Llamamos a la funcion <span class="math inline">\(v_\pi\)</span> funcion estado-valor de la politica <span class="math inline">\(\pi\)</span>.</p>
 <p><span class="math display">\[v_\pi(s) = E_\pi[G_t|S_T=s] = E_\pi[\sum_{k=0}^\infty \gamma^kR_{t+k+1}| S_t=s] \ \ \ \  \forall s \in \boldsymbol{S} \]</span></p>
 </div>
 </section>
-<section id="asdas" class="slide level2">
-<h2>asdas</h2>
+<section id="ecuación-de-bellman" class="slide level2">
+<h2>Ecuación de Bellman</h2>
 <div style="font-size: 70%;">
 <div class="rows">
 <div class="row" height="30%">
@@ -428,7 +428,7 @@ G_t = R_{t+1}+\gamma R_{t+2}+ \gamma^2R_{t+3}+... = \\
 <p><span class="math inline">\(= E_\pi[R_{t+1}+\gamma G_{t+1}|S_T=s] \ \ \ (1.4)\)</span> </p>
 <p><span class="math inline">\(= \sum_{a} \pi(a|s)\sum_{s'}\sum_{r}p(s',r|s,a)[r+\gamma E_\pi[G_{t+1}|S_{t+1}=s']]\)</span></p>
 <p><span class="math inline">\(= \sum_{a} \pi(a|s)\sum_{s',r}p(s',r|s,a)[r+\gamma v_\pi(s')] \ \  \forall s \in \boldsymbol{S} \ \ (1.5)\)</span></p>
-<p>La ecuación (1.4), conocida como <em>ecuación de Bellman</em>, expresa precisamente esta relación entre un estado y sus sucesores.</p>
+<p>La ecuación (1.5), conocida como <em>ecuación de Bellman</em>, expresa precisamente esta relación entre un estado y sus sucesores.</p>
 </div><div class="column" style="width:30%;">
 <div class="quarto-figure quarto-figure-right">
 <figure>
@@ -441,21 +441,19 @@ G_t = R_{t+1}+\gamma R_{t+2}+ \gamma^2R_{t+3}+... = \\
 </div>
 </div>
 </section>
-<section id="asdsad" class="slide level2">
-<h2>asdsad</h2>
+<section id="optimalidad" class="slide level2">
+<h2>Optimalidad</h2>
 <div style="font-size: 70%;">
 <p>De manera análoga, se define el valor de tomar una acción a en un estado s bajo una politica <span class="math inline">\(\pi\)</span> como el retorno esperado al comenzar en s, ejecutar la acción a y continuar siguiendo dicha política:</p>
-<p>$q_(s,a) = E_= E_&nbsp;&nbsp;&nbsp;$ </p>
+<p><span class="math inline">\(q_\pi(s,a) = E_\pi[G_t|S_T=s,A_T =a] = E_\pi[\sum_{k=0}^\infty \gamma^kR_{t+k+1}| S_t=s,A_T =a]\)</span></p>
 <p>Equivalentemente, puede expresarse como:</p>
 <p><span class="math inline">\(q_\pi(s,a) = E_\pi[R_{t+1}+\gamma v(S_{t+1})|S_T=s,A_T=a]\)</span></p>
 <p>A esta función se la denomina función de acción-valor de la política <span class="math inline">\(\pi\)</span>.</p>
-<p>El objetivo del aprendizaje por refuerzo es encontrar una política que maximice las recompensas futuras esperadas, es decir, que maximice, es decir, que maximice <span class="math inline">\(v_\pi(s)\)</span>.</p>
-<p>Decimos que una politica <span class="math inline">\(\pi'\)</span> es mejor que otra <span class="math inline">\(\pi \Leftrightarrow v_{\pi'}(s)&gt;v_\pi(s) \ \forall s\in \boldsymbol{S}\)</span></p>
-<p>Se define la funcion estado-valor optima como <span class="math inline">\(v_*(s)= \underset{\pi}{max} v_\pi (s)\)</span> y la funcion accion-valor optima como <span class="math inline">\(q_*(s,a)= \underset{\pi}{max} q_\pi (s,a)\)</span></p>
+<p>El objetivo del aprendizaje por refuerzo es encontrar una política que maximice las recompensas futuras esperadas, es decir, que maximice, es decir, que maximice <span class="math inline">\(v_\pi(s)\)</span>. Decimos que una politica <span class="math inline">\(\pi'\)</span> es mejor que otra <span class="math inline">\(\pi \Leftrightarrow v_{\pi'}(s)&gt;v_\pi(s) \ \forall s\in \boldsymbol{S}\)</span></p>
 </div>
 </section>
-<section id="explotacion-y-exploracion" class="slide level2">
-<h2>Explotacion y exploracion</h2>
+<section id="explotación-y-exploración" class="slide level2">
+<h2>Explotación y exploración</h2>
 <div style="font-size: 70%;">
 <p>El agente no conoce de antemano cuál es la política óptima, por lo que tampoco puede saber si su política actual es la mejor posible. La búsqueda de una mejor política implica, en ocasiones, ejecutar acciones con menor recompensa esperada en el corto plazo, con la esperanza de descubrir alternativas que resulten más beneficiosas a largo plazo. Este dilema se lo conoce como el <strong>problema de explotacion vs exploracion</strong>.</p>
 <p>Una estrategia simple para abordarlo es el método <span class="math inline">\(\epsilon\)</span>-greedy. Bajo este esquema, el agente selecciona una acción al azar con probabilidad <span class="math inline">\(\epsilon\)</span>, lo que le permite explorar nuevas posibilidades, y con probabilidad <span class="math inline">\(1-\epsilon\)</span> elige la mejor acción conocida hasta el momento, es decir, explota su conocimiento actual. Este tipo de estrategias se conocen como <strong>estocasticas</strong>, ya que asigna probabilidades estrictamente positivas a todas las acciones posibles en un estado dado. En contraste, una política <strong>determinista</strong> elige siempre la misma acción en cada estado, sin incorporar exploración.</p>
@@ -470,32 +468,67 @@ G_t = R_{t+1}+\gamma R_{t+2}+ \gamma^2R_{t+3}+... = \\
 </div>
 </section>
 <section id="on-policy-vs-off-policy" class="slide level2">
-<h2>On policy vs off policy</h2>
+<h2><em>On policy</em> vs <em>off policy</em></h2>
 <div style="font-size: 70%;">
-<p>Los metodos on-policy evaluan y mejoran la politica que estan usando para tomar decisiones, mientras que los off-policy mejoran una politica distinta a la que usan para generar los datos.</p>
-<p>En los metodos on-policy, la politica suele ser <em>suave</em>, con <span class="math inline">\(\pi(a|s)&gt;0\)</span> <span class="math inline">\(\forall s \in \boldsymbol{S} \ \land\)</span> <span class="math inline">\(\forall a \in \boldsymbol{A}\)</span>, gradualmente convergiendo a una politica optima determinista. Estos metodos suelen ser mas simples que los off-policy y ser considerados primero. Los off-policy requieren mas conceptos y notaciones, y al requerir datos de otra politica suelen tener mas variancia y converger mas lentamente, pero son mas poderosos y generales, ya que los metodos on-policy son el caso especial de que la politica que se mejora es la misma que con la que se obtienen los datos.</p>
+<p>Los métodos on-policy evalúan y mejoran la misma política que utilizan para generar las decisiones, mientras que los off-policy aprenden a mejorar una política distinta de aquella con la que se recopilan los datos.</p>
+<p>En los metodos on-policy, la politica suele ser <em>suave</em>, es decir, cumple que <span class="math inline">\(\pi(a|s) &gt; 0\)</span> <span class="math inline">\(\ \forall s \in \boldsymbol{S} \ \forall a \in \boldsymbol{A}\)</span>. De este modo, la política va ajustándose gradualmente hasta converger hacia una política óptima determinista. Estos algoritmos suelen ser más simples conceptualmente que los off-policy y, por ello, se estudian primero.</p>
+<p>Por su parte, los métodos off-policy requieren una mayor carga conceptual y notacional. Al basarse en datos generados por otra política, suelen presentar mayor varianza y una convergencia más lenta. Sin embargo, ofrecen mayor flexibilidad y generalidad: los métodos on-policy pueden verse como un caso particular en el que la política de mejora coincide con la política de comportamiento.</p>
 </div>
 </section>
-<section id="temporal-difference" class="slide level2">
-<h2>Temporal difference</h2>
+<section id="diferencias-temporales" class="slide level2">
+<h2>Diferencias temporales</h2>
 <div style="font-size: 70%;">
-<p>Una de las desventajas de los metodos de Monte Carlo es que tienen que esperar a que el episodio termine para actualizar la estimacion de la funcion de valor. Ahi es donde entra el <em>Aprendizaje por Diferencias Temporales(TD)</em>. Este metodo permite actualizar las estimaciones utilizando remuestreo(bootstrap) sin necesidad de esperar a que el episodio acabe. El objetivo de diferencia temporal(TD Target) es la estimacion de <span class="math inline">\(E_\pi[R_{t+1}+\gamma G_{t+1}|S_T=s]\)</span> (1.4), con el que actualizara las viejas estimaciones.</p>
-<p><span class="math inline">\(Est_{new} = Est_{old} + \alpha [TDTarget - Est_{old}]\)</span></p>
-<p>Donde <span class="math inline">\(\alpha\)</span> es la tasa de aprendizaje</p>
-<p>Siendo <span class="math inline">\(\delta_t = [target - old_est]\)</span> el <em>error de diferencia temporal</em></p>
+<p>Una de las principales desventajas de los métodos de Monte Carlo es que requieren esperar hasta que finalice el episodio completo para actualizar la estimación de la función de valor. Ahi es donde entra el <em>Aprendizaje por Diferencias Temporales(TD)</em>. Aquí es donde entra el Aprendizaje por Diferencias Temporales (TD). Este enfoque permite actualizar las estimaciones en línea, utilizando remuestreo (bootstrap), sin necesidad de esperar al final del episodio.</p>
+<p>El objetivo de TD (o TD Target) es la estimación: <span class="math inline">\(E_\pi[R_{t+1}+\gamma G_{t+1}|S_T=s]\)</span> (1.4) con la cual se corrigen las estimaciones previas.</p>
+<p>La regla de actualización se expresa como: <span class="math inline">\(Est_{new} = Est_{old} + \alpha [TDTarget - Est_{old}]\)</span></p>
+<p>donde <span class="math inline">\(\alpha\)</span> es la tasa de aprendizaje y <span class="math inline">\(\delta_t = [target - old_est]\)</span> el <em>error de diferencia temporal</em></p>
+<p>Este error <span class="math inline">\(\delta_t\)</span> es una estimación en el momento t que depende de la recompensa y de los estados siguientes.</p>
 </div>
 </section>
-<section id="ejemplo-metodo-td-on-policy-sarsa" class="slide level2">
-<h2>Ejemplo metodo TD on-policy: Sarsa</h2>
+<section id="algoritmo" class="slide level2">
+<h2>Algoritmo</h2>
 <div style="font-size: 70%;">
+<p>El algoritmo de los metodos TD es esencialmente el mismo para todos.</p>
+<ul>
+<li>Por cada episodio:
+<ul>
+<li>Iniciar el estado S.</li>
+<li>Elegir una acción A a partir de S siguiendo la política <span class="math inline">\(\pi\)</span>.</li>
+<li>Repetir para cada paso del episodio.
+<ul>
+<li>Ejecutar la acción A, obteniendo una recompensa R y el siguiente estado S’.</li>
+<li>Seleccionar una acción A’ en S’ siguiendo la política <span class="math inline">\(\pi\)</span>.</li>
+<li>Actualizar la funcion de valor.</li>
+<li>Actualizar S <span class="math inline">\(\leftarrow\)</span> S’, A <span class="math inline">\(\leftarrow\)</span> A’.</li>
+</ul></li>
+<li>Terminar cuando S sea un estado terminal.</li>
+</ul></li>
+</ul>
+<p>La diferencia entre los distintos métodos TD radica en cómo se actualiza la función de valor.</p>
+</div>
+</section>
+<section id="sarsa-y-q-learning" class="slide level2">
+<h2>Sarsa y Q-learning</h2>
+<div style="font-size: 70%;">
+<p>Uno de los métodos TD más conocidos es <strong>SARSA</strong>, cuyo nombre proviene de la secuencia de elementos que intervienen en la actualización dentro del MDP:(S, A, R, S, A). Se trata de un método on-policy, ya que utiliza la acción seleccionada en el nuevo estado S’ para actualizar la función de valor:</p>
 <p><span class="math inline">\(Q(S_t,A_t) \leftarrow Q(S_t,A_t) + \alpha [R_{t+1} + \gamma Q(S_{t+1},A_{t+1})-Q(S_t,A_t)]\)</span></p>
+<p>La convergencia de <strong>SARSA</strong> depende de las características de la política utilizada (por ejemplo, que sea suficientemente exploratoria).</p>
+<p>Otro método TD fundamental es Q-learning. A diferencia de SARSA, es un método off-policy, ya que actualiza la función de valor utilizando la acción <em>greedy</em> (aquella que maximize Q), independientemente de la política usada:</p>
+<p><span class="math inline">\(Q(S_t,A_t) \leftarrow Q(S_t,A_t) + \alpha [R_{t+1} + \gamma \underset{a}{max} Q(S_{t+1},a)-Q(S_t,A_t)]\)</span></p>
+<p>Bajo ciertas condiciones sobre la tasa de aprendizaje y la exploración, ambos algoritmos convergen hacia la función de valor óptima.</p>
 </div>
 </section>
-<section id="q-learning" class="slide level2">
-<h2>Q-learning</h2>
+<section id="sarsa-esperado" class="slide level2">
+<h2>Sarsa esperado</h2>
 <div style="font-size: 70%;">
-<p><span class="math inline">\(Q(S_t,A_t) \leftarrow Q(S_t,A_t) + \alpha [R_{t+1} + \gamma \underset{a}{max} Q(S_{t+1},a)-Q(S_t,A_t)]\)</span></p>
+<p>Al igual que <strong>SARSA</strong>, el <strong>SARSA esperado</strong> es un algoritmo on-policy. La diferencia principal es que, en lugar de usar la acción tomada en el estado S’, utiliza el valor esperado de todas las acciones posibles bajo la política <span class="math inline">\(\pi\)</span>:</p>
+<p><span class="math inline">\(Q(S_t,A_t) \leftarrow Q(S_t,A_t) + \alpha [R_{t+1} + \gamma E_\pi[Q(S_{t+1},A_{t+1})|S_{t+1}]-Q(S_t,A_t)]\)</span></p>
+<p><span class="math inline">\(Q(S_t,A_t) \leftarrow Q(S_t,A_t) + \alpha [R_{t+1} + \gamma \underset{a}{\sum}\pi(a|S_{t+1})Q(S_{t+1},a)-Q(S_t,A_t)]\)</span></p>
+<p>Aunque es más costoso computacionalmente que <strong>SARSA</strong>, este enfoque elimina la variabilidad introducida por la acción particular <span class="math inline">\(A_{t+1}\)</span>. En la práctica, suele ofrecer un rendimiento ligeramente superior al de <strong>SARSA</strong> cuando se entrena con la misma cantidad de experiencia.</p>
 </div>
+</section>
+<section id="comparación-de-metodos-cliffwalker" class="slide level2">
+<h2>Comparación de metodos: Cliffwalker</h2>
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 
@@ -506,19 +539,19 @@ G_t = R_{t+1}+\gamma R_{t+2}+ \gamma^2R_{t+3}+... = \\
   </div>
 
   <script>window.backupDefine = window.define; window.define = undefined;</script>
-  <script src="Tesina_files/libs/revealjs/dist/reveal.js"></script>
+  <script src="Introduccion-02-10-2025_files/libs/revealjs/dist/reveal.js"></script>
   <!-- reveal.js plugins -->
-  <script src="Tesina_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
-  <script src="Tesina_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
-  <script src="Tesina_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
-  <script src="Tesina_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
-  <script src="Tesina_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  <script src="Introduccion-02-10-2025_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="Introduccion-02-10-2025_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="Introduccion-02-10-2025_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="Introduccion-02-10-2025_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="Introduccion-02-10-2025_files/libs/revealjs/plugin/quarto-support/support.js"></script>
   
 
-  <script src="Tesina_files/libs/revealjs/plugin/notes/notes.js"></script>
-  <script src="Tesina_files/libs/revealjs/plugin/search/search.js"></script>
-  <script src="Tesina_files/libs/revealjs/plugin/zoom/zoom.js"></script>
-  <script src="Tesina_files/libs/revealjs/plugin/math/math.js"></script>
+  <script src="Introduccion-02-10-2025_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="Introduccion-02-10-2025_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="Introduccion-02-10-2025_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="Introduccion-02-10-2025_files/libs/revealjs/plugin/math/math.js"></script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
 
   <script>
@@ -712,6 +745,82 @@ G_t = R_{t+1}+\gamma R_{t+2}+ \gamma^2R_{t+3}+... = \\
         ]
       });
     </script>
+    
+
+    <script>
+
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+
+      // slide changes (different for each slide format).
+
+      (function () {
+
+        // dispatch for htmlwidgets
+
+        function fireSlideEnter() {
+
+          const event = window.document.createEvent("Event");
+
+          event.initEvent("slideenter", true, true);
+
+          window.document.dispatchEvent(event);
+
+        }
+
+    
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+
+          fireSlideEnter();
+
+    
+
+          // dispatch for shiny
+
+          if (window.jQuery) {
+
+            if (previousSlide) {
+
+              window.jQuery(previousSlide).trigger("hidden");
+
+            }
+
+            if (currentSlide) {
+
+              window.jQuery(currentSlide).trigger("shown");
+
+            }
+
+          }
+
+        }
+
+    
+
+        // hookup for slidy
+
+        if (window.w3c_slidy) {
+
+          window.w3c_slidy.add_observer(function (slide_num) {
+
+            // slide_num starts at position 1
+
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+
+          });
+
+        }
+
+    
+
+      })();
+
+    </script>
+
+    
+
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {

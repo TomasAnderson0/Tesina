@@ -10,7 +10,7 @@ title-slide-attributes:
 editor: visual
 ---
 
-## ¿Que es el Reinforcement Learning?
+## ¿Que es el *Reinforcement Learning*?
 
 ::: rows
 ::: {.row height="50%"}
@@ -32,14 +32,14 @@ El aprendizaje por refuerzo (RL) es un tipo de aprendizaje automático en el que
 -   Acción(A): Decisión o movimiento que el agente realiza para influir en el entorno.
 :::
 
-## Proceso de decision de Markov(MDP)
+## Proceso de decisión de Markov(MDP)
 
 ::: rows
 ::: {.row height="30%"}
 ::: columns
 ::: {.column width="50%"}
 ::: {style="font-size: 70%;"}
-En un estado dado del entorno, el agente debe seleccionar una acción. Al ejecutar dicha acción, el entorno responde proporcionando un nuevo estado y una recompensa numérica asociada a esa transición. Repitiendo este proceso de forma cíclica —ya sea hasta alcanzar un objetivo o hasta que finalice la tarea— se genera una secuencia o *trayectoria* del tipo:
+En un estado dado del entorno, el agente debe seleccionar una acción. Al ejecutar dicha acción, el entorno responde proporcionando un nuevo estado y una recompensa numérica asociada a esa transición. Repitiendo este proceso de forma cíclica —ya sea hasta alcanzar un objetivo o hasta que finalice la tarea (estado terminal)— se genera una secuencia o *trayectoria* del tipo:
 :::
 :::
 
@@ -56,7 +56,7 @@ $$S_0,A_0,R_1,S_1,A_1,R_2,S_2,A_2,...$$ Esta secuencia es conocida como un Proce
 :::
 :::
 
-## Finito
+## MDP Finito
 
 ::: {style="font-size: 70%;"}
 Si el conjunto de estados, acciones y recompensas($\boldsymbol{S}$, $\boldsymbol{A}$ y $\boldsymbol{R}$) tienen un numero finito de elementos, entonces se dice que el MDP es finito. En este caso, la probabilidad de obtener una recompensa $r \in \boldsymbol{R}$ y un estado $s' \in \boldsymbol{S}$ en un tiempo t , dado un estado anterior s y una acción tomada a, se define como: $$p(s', r | s, a) = Pr(S_t = s' , R_t | S_{t-1}=s,A_{t-1}=a )$$ La función p describe la dinámica del MDP. Si esta función caracteriza completamente el entorno —es decir, si la probabilidad de cada posible par de estado y recompensa futuros depende únicamente del estado y la acción anteriores—, entonces se dice que el proceso posee la **propiedad de Markov**.
@@ -79,7 +79,7 @@ Si existe una noción de un paso final, y la interacción entre el agente y el e
 ::: {style="font-size: 70%;"}
 Si la tarea es continua, el retorno $G_t$ puede ser infinito. Para evitarlo, se introduce un factor de descuento $\gamma \in [0,1]$.
 
-$$G_t = R_{t+1}+\gamma R_{t+2}+ \gamma^2R_{t+3}+... = \sum_{k=0}^\infty \gamma^kR_{t+k+1} \ \ \ \ \ \ \ \ \ \ \ \ (1.2) $$ Mientras $\gamma<1$ la suma infinita en (1.2) es finita siempre que las recompensas $R_t$ esten acotadas. Cuando $\gamma = 0$, se dice que el agente es *miope*, pues solo maximiza las recompensas inmediatas.Cuanto más se acerque $\gamma$ a 1, mayor será la importancia que el retorno otorgue a las recompensas futuras.
+$$G_t = R_{t+1}+\gamma R_{t+2}+ \gamma^2R_{t+3}+... = \sum_{k=0}^\infty \gamma^kR_{t+k+1} \ \ \ \ \ \ \ \ \ \ \ \ (1.2) $$ Mientras $\gamma<1$ la suma infinita en (1.2) es finita siempre que las recompensas $R_t$ esten acotadas. Cuando $\gamma = 0$, se dice que el agente es *miope*, pues solo maximiza las recompensas inmediatas. Cuanto más se acerque $\gamma$ a 1, mayor será la importancia que el retorno otorgue a las recompensas futuras.
 
 ```{=tex}
 \begin{matrix}
@@ -91,7 +91,7 @@ G_t = R_{t+1}+\gamma R_{t+2}+ \gamma^2R_{t+3}+... = \\
 ```
 :::
 
-## Funcion de valor y politica
+## Funcion de valor y política
 
 ::: {style="font-size: 70%;"}
 Para el agente saber que tan bien una accion en cierto estado se necesita una funcion que estime las recompensas futuras promedio que la accion traera. Esto se logra con la llamada funcion de valor, que depende de la accion que el agente tome, es decir, depende de su politica. La politica es el mapeo de los estados a la probabilidad de seleccionar cada posible accion. Si el agente sigue una politica $\pi$ al tiempo t, entonces $\pi(a|s)$ es la probabilidad de $A_t=a$ si $S_t=s$. La funcion de valor siguiendo la politica \pi, $v_\pi(s)$, es el retorno esperado de seguir una politica \pi cuando se empieza en el estado s. Llamamos a la funcion $v_\pi$ funcion estado-valor de la politica $\pi$.
@@ -99,7 +99,7 @@ Para el agente saber que tan bien una accion en cierto estado se necesita una fu
 $$v_\pi(s) = E_\pi[G_t|S_T=s] = E_\pi[\sum_{k=0}^\infty \gamma^kR_{t+k+1}| S_t=s] \ \ \ \  \forall s \in \boldsymbol{S} $$
 :::
 
-## asdas
+## Ecuación de Bellman
 
 ::: {style="font-size: 70%;"}
 ::: rows
@@ -118,7 +118,7 @@ $= \sum_{a} \pi(a|s)\sum_{s'}\sum_{r}p(s',r|s,a)[r+\gamma E_\pi[G_{t+1}|S_{t+1}=
 
 $= \sum_{a} \pi(a|s)\sum_{s',r}p(s',r|s,a)[r+\gamma v_\pi(s')] \ \  \forall s \in \boldsymbol{S} \ \ (1.5)$
 
-La ecuación (1.4), conocida como *ecuación de Bellman*, expresa precisamente esta relación entre un estado y sus sucesores.
+La ecuación (1.5), conocida como *ecuación de Bellman*, expresa precisamente esta relación entre un estado y sus sucesores.
 :::
 
 ::: {.column width="30%"}
@@ -129,12 +129,12 @@ La ecuación (1.4), conocida como *ecuación de Bellman*, expresa precisamente e
 :::
 :::
 
-## asdsad
+## Optimalidad
 
 ::: {style="font-size: 70%;"}
 De manera análoga, se define el valor de tomar una acción a en un estado s bajo una politica $\pi$ como el retorno esperado al comenzar en s, ejecutar la acción a y continuar siguiendo dicha política:
 
-$q_\pi(s,a) = E_\pi[G_t|S_T=s,A_T =a] = E_\pi[\sum_{k=0}^\infty \gamma^kR_{t+k+1}| S_t=s,A_T =a] \ \ \ \$ \newline
+$q_\pi(s,a) = E_\pi[G_t|S_T=s,A_T =a] = E_\pi[\sum_{k=0}^\infty \gamma^kR_{t+k+1}| S_t=s,A_T =a]$
 
 Equivalentemente, puede expresarse como:
 
@@ -142,14 +142,14 @@ $q_\pi(s,a) = E_\pi[R_{t+1}+\gamma v(S_{t+1})|S_T=s,A_T=a]$
 
 A esta función se la denomina función de acción-valor de la política $\pi$.
 
-El objetivo del aprendizaje por refuerzo es encontrar una política que maximice las recompensas futuras esperadas, es decir, que maximice, es decir, que maximice $v_\pi(s)$.
+El objetivo del aprendizaje por refuerzo es encontrar una política que maximice las recompensas futuras esperadas, es decir, que maximice, es decir, que maximice $v_\pi(s)$. Decimos que una politica $\pi'$ es mejor que otra $\pi \Leftrightarrow v_{\pi'}(s)>v_\pi(s) \ \forall s\in \boldsymbol{S}$
 
-Decimos que una politica $\pi'$ es mejor que otra $\pi \Leftrightarrow v_{\pi'}(s)>v_\pi(s) \ \forall s\in \boldsymbol{S}$
-
-Se define la funcion estado-valor optima como $v_*(s)= \underset{\pi}{max} v_\pi (s)$ y la funcion accion-valor optima como $q_*(s,a)= \underset{\pi}{max} q_\pi (s,a)$
+```{r}
+# Se define la funcion estado-valor optima como $v_*(s)= \underset{\pi}{max} v_\pi (s)$ y la funcion accion-valor optima como $q_*(s,a)= \underset{\pi}{max} q_\pi (s,a)$
+```
 :::
 
-## Explotacion y exploracion
+## Explotación y exploración
 
 ::: {style="font-size: 70%;"}
 El agente no conoce de antemano cuál es la política óptima, por lo que tampoco puede saber si su política actual es la mejor posible. La búsqueda de una mejor política implica, en ocasiones, ejecutar acciones con menor recompensa esperada en el corto plazo, con la esperanza de descubrir alternativas que resulten más beneficiosas a largo plazo. Este dilema se lo conoce como el **problema de explotacion vs exploracion**.
@@ -167,34 +167,74 @@ La principal ventaja de MC es que no requiere un modelo del ambiente para estima
 Una complicación importante de este método es la posibilidad de que ciertos pares estado–acción nunca sean visitados, lo que impide estimar sus valores. La forma más común de mitigar este problema es utilizar políticas estocásticas, que aseguran una probabilidad positiva de seleccionar todas las acciones posibles. Para garantizar esta propiedad, se emplean principalmente dos tipos de métodos.
 :::
 
-## On policy vs off policy
+## *On policy* vs *off policy*
 
 ::: {style="font-size: 70%;"}
-Los metodos on-policy evaluan y mejoran la politica que estan usando para tomar decisiones, mientras que los off-policy mejoran una politica distinta a la que usan para generar los datos.
+Los métodos on-policy evalúan y mejoran la misma política que utilizan para generar las decisiones, mientras que los off-policy aprenden a mejorar una política distinta de aquella con la que se recopilan los datos.
 
-En los metodos on-policy, la politica suele ser *suave*, con $\pi(a|s)>0$ $\forall s \in \boldsymbol{S} \ \land$ $\forall a \in \boldsymbol{A}$, gradualmente convergiendo a una politica optima determinista. Estos metodos suelen ser mas simples que los off-policy y ser considerados primero. Los off-policy requieren mas conceptos y notaciones, y al requerir datos de otra politica suelen tener mas variancia y converger mas lentamente, pero son mas poderosos y generales, ya que los metodos on-policy son el caso especial de que la politica que se mejora es la misma que con la que se obtienen los datos.
+En los metodos on-policy, la politica suele ser *suave*, es decir, cumple que $\pi(a|s) > 0$ $\ \forall s \in \boldsymbol{S} \ \forall a \in \boldsymbol{A}$. De este modo, la política va ajustándose gradualmente hasta converger hacia una política óptima determinista. Estos algoritmos suelen ser más simples conceptualmente que los off-policy y, por ello, se estudian primero.
+
+Por su parte, los métodos off-policy requieren una mayor carga conceptual y notacional. Al basarse en datos generados por otra política, suelen presentar mayor varianza y una convergencia más lenta. Sin embargo, ofrecen mayor flexibilidad y generalidad: los métodos on-policy pueden verse como un caso particular en el que la política de mejora coincide con la política de comportamiento.
 :::
 
-## Temporal difference
+## Diferencias temporales
 
 ::: {style="font-size: 70%;"}
-Una de las desventajas de los metodos de Monte Carlo es que tienen que esperar a que el episodio termine para actualizar la estimacion de la funcion de valor. Ahi es donde entra el *Aprendizaje por Diferencias Temporales(TD)*. Este metodo permite actualizar las estimaciones utilizando remuestreo(bootstrap) sin necesidad de esperar a que el episodio acabe. El objetivo de diferencia temporal(TD Target) es la estimacion de $E_\pi[R_{t+1}+\gamma G_{t+1}|S_T=s]$ (1.4), con el que actualizara las viejas estimaciones.
+Una de las principales desventajas de los métodos de Monte Carlo es que requieren esperar hasta que finalice el episodio completo para actualizar la estimación de la función de valor. Ahi es donde entra el *Aprendizaje por Diferencias Temporales(TD)*. Aquí es donde entra el Aprendizaje por Diferencias Temporales (TD). Este enfoque permite actualizar las estimaciones en línea, utilizando remuestreo (bootstrap), sin necesidad de esperar al final del episodio.
 
-$Est_{new} = Est_{old} + \alpha [TDTarget - Est_{old}]$
+El objetivo de TD (o TD Target) es la estimación: $E_\pi[R_{t+1}+\gamma G_{t+1}|S_T=s]$ (1.4) con la cual se corrigen las estimaciones previas.
 
-Donde $\alpha$ es la tasa de aprendizaje
+La regla de actualización se expresa como: $Est_{new} = Est_{old} + \alpha [TDTarget - Est_{old}]$
 
-Siendo $\delta_t = [target - old_est]$ el *error de diferencia temporal*
+donde $\alpha$ es la tasa de aprendizaje y $\delta_t = [target - old_est]$ el *error de diferencia temporal*
+
+Este error $\delta_t$ es una estimación en el momento t que depende de la recompensa y de los estados siguientes.
 :::
 
-## Ejemplo metodo TD on-policy: Sarsa
+## Algoritmo
 
 ::: {style="font-size: 70%;"}
+El algoritmo de los metodos TD es esencialmente el mismo para todos.
+
+-   Por cada episodio:
+    -   Iniciar el estado S.
+    -   Elegir una acción A a partir de S siguiendo la política $\pi$.
+    -   Repetir para cada paso del episodio.
+        -   Ejecutar la acción A, obteniendo una recompensa R y el siguiente estado S'.
+        -   Seleccionar una acción A' en S' siguiendo la política $\pi$.
+        -   Actualizar la funcion de valor.
+        -   Actualizar S $\leftarrow$ S', A $\leftarrow$ A'.
+    -   Terminar cuando S sea un estado terminal.
+
+La diferencia entre los distintos métodos TD radica en cómo se actualiza la función de valor.
+:::
+
+## Sarsa y Q-learning
+
+::: {style="font-size: 70%;"}
+Uno de los métodos TD más conocidos es **SARSA**, cuyo nombre proviene de la secuencia de elementos que intervienen en la actualización dentro del MDP:(S, A, R, S, A). Se trata de un método on-policy, ya que utiliza la acción seleccionada en el nuevo estado S' para actualizar la función de valor:
+
 $Q(S_t,A_t) \leftarrow Q(S_t,A_t) + \alpha [R_{t+1} + \gamma Q(S_{t+1},A_{t+1})-Q(S_t,A_t)]$
+
+La convergencia de **SARSA** depende de las características de la política utilizada (por ejemplo, que sea suficientemente exploratoria).
+
+Otro método TD fundamental es Q-learning. A diferencia de SARSA, es un método off-policy, ya que actualiza la función de valor utilizando la acción *greedy* (aquella que maximize Q), independientemente de la política usada:
+
+$Q(S_t,A_t) \leftarrow Q(S_t,A_t) + \alpha [R_{t+1} + \gamma \underset{a}{max} Q(S_{t+1},a)-Q(S_t,A_t)]$
+
+Bajo ciertas condiciones sobre la tasa de aprendizaje y la exploración, ambos algoritmos convergen hacia la función de valor óptima.
 :::
 
-## Q-learning
+## Sarsa esperado
 
 ::: {style="font-size: 70%;"}
-$Q(S_t,A_t) \leftarrow Q(S_t,A_t) + \alpha [R_{t+1} + \gamma \underset{a}{max} Q(S_{t+1},a)-Q(S_t,A_t)]$
+Al igual que **SARSA**, el **SARSA esperado** es un algoritmo on-policy. La diferencia principal es que, en lugar de usar la acción tomada en el estado S', utiliza el valor esperado de todas las acciones posibles bajo la política $\pi$:
+
+$Q(S_t,A_t) \leftarrow Q(S_t,A_t) + \alpha [R_{t+1} + \gamma E_\pi[Q(S_{t+1},A_{t+1})|S_{t+1}]-Q(S_t,A_t)]$
+
+$Q(S_t,A_t) \leftarrow Q(S_t,A_t) + \alpha [R_{t+1} + \gamma \underset{a}{\sum}\pi(a|S_{t+1})Q(S_{t+1},a)-Q(S_t,A_t)]$
+
+Aunque es más costoso computacionalmente que **SARSA**, este enfoque elimina la variabilidad introducida por la acción particular $A_{t+1}$. En la práctica, suele ofrecer un rendimiento ligeramente superior al de **SARSA** cuando se entrena con la misma cantidad de experiencia.
 :::
+
+## Comparación de metodos: Cliffwalker
